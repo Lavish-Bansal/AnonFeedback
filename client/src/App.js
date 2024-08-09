@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import { useAppDispatch, useAppSelector } from "./store/store";
 import { setLoading } from "./store/slices/loading.slice";
@@ -40,9 +40,9 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path exact ="/" element={<Home />} />
           <Route path="/sign-in" element={<Login />} />
           <Route path="/sign-up" element={<Register />} />
           <Route
@@ -52,7 +52,7 @@ function App() {
           />
           <Route path="/user-client/:userId" element={<SendMessage />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
       <Footer />
     </>
   );
